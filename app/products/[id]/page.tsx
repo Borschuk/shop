@@ -13,7 +13,7 @@ export default async function ProductPage({ params }: PageProps) {
   const supabase = await createClient();
 
   const { data: product, error } = await supabase
-    .from<Product>("products")
+    .from("products")
     .select("*")
     .eq("id", id)
     .single();
