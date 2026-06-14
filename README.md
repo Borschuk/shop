@@ -1,3 +1,7 @@
+# Preview
+
+https://shop-5grt.vercel.app/
+
 # Shop — Product Catalog
 
 A full-stack product catalog built with Next.js and Supabase. Users can browse products, register or sign in, add new listings, and edit or delete their own products — all with server-side rendering and server actions.

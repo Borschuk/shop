@@ -1,13 +1,15 @@
-
+import FeaturesSection from "@/app/components/FeaturesSection";
+import TechStackSection from "@/app/components/TechStackSection";
+import HeroSection from "@/app/components/HeroSection";
+import ArchitectureSection from "@/app/components/ArchitectureSection";
 
 export default function Home() {
   return (
-    <main className="flex-1 p-4">
-      <h1 className="text-3xl font-bold">Welcome to My App</h1>
-      <p className="mt-4 text-lg">
-        This is a simple Next.js application with a header and footer.
-      </p>
-
+    <main className="flex-1">
+      <HeroSection />
+      <FeaturesSection />
+      <TechStackSection />
+      <ArchitectureSection />
     </main>
   );
 }
