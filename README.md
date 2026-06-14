@@ -4,16 +4,19 @@ https://shop-5grt.vercel.app/
 
 # Shop — Product Catalog
 
-A full-stack product catalog built with Next.js and Supabase. Users can browse products, register or sign in, add new listings, and edit or delete their own products — all with server-side rendering and server actions.
+A full-stack product catalog built with Next.js and Supabase. Users can browse products, register or sign in, add new listings, and edit or delete their own products — all with server-side rendering and server actions. The landing page presents a hero banner, feature highlights, tech stack overview, and architecture breakdown.
 
 ## Why this project is useful
 
 - Demonstrates a **real-world full-stack pattern** using Next.js Server Actions, Supabase Auth, and a PostgreSQL database — no separate backend needed.
 - Showcases **modern React 19 features** like `useActionState` for form handling and `useRef` for form resets.
 - Uses **Radix UI Themes** for a polished, accessible UI with a dark theme out of the box.
-- Serves as a **portfolio-ready reference** for authentication flows, CRUD operations, protected routes, and server-vs-client component architecture in Next.js.
+- Serves as a **portfolio-ready reference** for authentication flows, CRUD operations, protected routes, server-vs-client component architecture, and mobile-responsive design in Next.js.
+- Landing page built from **extracted, reusable components** demonstrating clean component composition and separation of concerns.
 
 ## Implemented features
+
+### App
 
 - **User authentication** — sign up, sign in, and sign out via Supabase Auth (`actions/auth.ts`)
 - **Product CRUD** — create, read, update, and delete products using Supabase PostgreSQL (`actions/products.ts`)
@@ -24,7 +27,32 @@ A full-stack product catalog built with Next.js and Supabase. Users can browse p
 - **Add product form** — form with `useActionState` and auto-reset on success (`app/add-product/page.tsx`)
 - **Auth forms** — tabbed sign-in / sign-up interface (`app/login/auth-forms.tsx`)
 - **Dark theme** — consistent dark appearance via Radix UI Themes (`app/layout.tsx`)
-- **Responsive navigation** — header with links to Home, Products, Add Product, and Login (`app/components/MainHeader.tsx`)
+
+### Landing page
+
+- **Hero section** — gradient hero with "Product Catalog" title, description, and CTA buttons linking to `/products` and `/login` (`app/components/HeroSection.tsx`)
+- **Features section** — "What's Inside" block with icon cards for Auth, CRUD, Catalog, Detail Pages, Protected Routes, and Modern React 19 (`app/components/FeaturesSection.tsx` → `FeaturesList.tsx` → `FeatureCard.tsx`)
+- **Tech stack section** — grid of technology cards (Next.js 16, React 19, TypeScript, Supabase, Tailwind, Radix UI) (`app/components/TechStackSection.tsx` → `TechStackList.tsx` → `TechStackCard.tsx`)
+- **Architecture highlights** — bullet list covering Server Actions, React Server Components, Supabase Auth + SSR, and Radix UI Themes (`app/components/ArchitectureSection.tsx`)
+- **Collapsible "Additional Info"** — toggle button reveals SVG donut chart (75% built by me / 25% AI-assisted) and GitHub link cards (`app/components/AdditionalInfo.tsx`)
+
+### Mobile responsiveness
+
+- **MainHeader** — hamburger menu toggle with animated icon (Radix UI `HamburgerMenuIcon` / `Cross1Icon`), desktop nav hidden on mobile, vertical drawer with tap-to-close (`app/components/MainHeader.tsx`)
+- **Forms** (add-product, login, signup) — constrained with `max-w-lg mx-auto`, responsive padding and titles
+- **ProductCard** — responsive padding, text, and image sizing
+- **ActionButtons** — stack vertically on mobile (`flex-col sm:flex-row`)
+- **EditPopup** — responsive dialog width
+- **Product detail page** — action buttons not absolutely positioned on mobile
+- **Products page** — horizontal padding added
+- **Auth tabs** — responsive max-width and text sizing
+- **MainFooter** — responsive padding and text
+- **ProductList** — responsive heading and padding
+
+### Visual details
+
+- **Logo** — dotted white border (`border-2 border-white/50 border-dotted`), no background fill
+- **Dark theme** — consistent dark appearance via Radix UI Themes (`app/layout.tsx`)
 
 ## Tech stack
 
@@ -34,6 +62,7 @@ A full-stack product catalog built with Next.js and Supabase. Users can browse p
 | UI Library         | [React](https://react.dev) 19.2.4                                                                   |
 | Language           | [TypeScript](https://www.typescriptlang.org) 5                                                      |
 | Styling            | [Tailwind CSS](https://tailwindcss.com) v4 + [Radix UI Themes](https://www.radix-ui.com/themes) 3.3 |
+| Icons              | [Radix UI Icons](https://www.radix-ui.com/icons) 1.3                                                |
 | Backend / Database | [Supabase](https://supabase.com) (Auth + PostgreSQL)                                                |
 | Linting            | [ESLint](https://eslint.org) 9 with `eslint-config-next`                                            |
 | Fonts              | Geist / Geist Mono via `next/font`                                                                  |
@@ -112,16 +141,26 @@ shop/
 ├── app/
 │   ├── globals.css          # Tailwind + Radix imports
 │   ├── layout.tsx           # Root layout with dark Theme, Header, Footer
-│   ├── page.tsx             # Home page
+│   ├── page.tsx             # Home page (composes all landing sections)
 │   ├── add-product/
 │   │   └── page.tsx         # Add product form (client component)
 │   ├── components/
-│   │   ├── ActionButtons.tsx # Delete / Edit buttons with popup
-│   │   ├── EditPopup.tsx     # Radix Dialog form for editing
-│   │   ├── MainFooter.tsx    # Footer
-│   │   ├── MainHeader.tsx    # Navigation header
-│   │   ├── ProductCard.tsx   # Product card for the list
-│   │   └── ProductList.tsx   # Server component that fetches and lists products
+│   │   ├── ActionButtons.tsx    # Delete / Edit buttons with popup
+│   │   ├── AdditionalInfo.tsx   # Collapsible section with donut chart & GitHub links
+│   │   ├── ArchitectureSection.tsx # Architecture highlights bullet list
+│   │   ├── EditPopup.tsx        # Radix Dialog form for editing
+│   │   ├── FeatureCard.tsx      # Single feature card (icon + title + description)
+│   │   ├── FeaturesList.tsx     # Features data array + grid of FeatureCards
+│   │   ├── FeaturesSection.tsx  # "What's Inside" block with heading + FeaturesList
+│   │   ├── GitHubLinks.tsx      # GitHub repository & profile link cards
+│   │   ├── HeroSection.tsx      # Gradient hero banner with CTAs
+│   │   ├── MainFooter.tsx       # Footer
+│   │   ├── MainHeader.tsx       # Navigation header with hamburger menu on mobile
+│   │   ├── ProductCard.tsx      # Product card for the list
+│   │   ├── ProductList.tsx      # Server component that fetches and lists products
+│   │   ├── TechStackCard.tsx    # Single tech item card (name + description)
+│   │   ├── TechStackList.tsx    # Tech stack data array + grid of TechStackCards
+│   │   └── TechStackSection.tsx # "Tech Stack" block with heading + TechStackList
 │   ├── lib/
 │   │   ├── server.ts        # Supabase server client (cookies-based SSR)
 │   │   └── types.ts         # Product type definition
