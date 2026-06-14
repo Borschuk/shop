@@ -85,7 +85,7 @@ export default function AdditionalInfo() {
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-white/5 px-5 py-2 text-sm font-medium text-violet-300 transition hover:border-violet-400 hover:bg-white/10"
+          className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-white/5 px-5 py-2 text-sm font-medium text-violet-300 transition hover:border-violet-400 hover:bg-white/10"
         >
           <ExternalLinkIcon className="h-4 w-4" />
           {isOpen ? "Hide" : "Show"} Additional Info

@@ -21,7 +21,7 @@ export default function MainHeader() {
       <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <Link
           href="/"
-          className="rounded-full bg-teal-500 h-10 w-10 sm:h-12.5 sm:w-12.5 flex items-center justify-center shrink-0"
+          className="rounded-full border-2 border-white/50 border-dotted h-10 w-10 sm:h-12.5 sm:w-12.5 flex items-center justify-center shrink-0"
         >
           <Image
             src={productImage}
