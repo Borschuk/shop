@@ -18,9 +18,11 @@ export default function page() {
   }, [state.success]);
 
   return (
-    <main className="flex-1">
-      <h1 className="text-2xl font-bold text-center mt-4">Add Product</h1>
-      <div className="border p-4 mt-8">
+    <main className="flex-1 px-4 sm:px-0">
+      <h1 className="text-xl font-bold text-center mt-4 sm:text-2xl">
+        Add Product
+      </h1>
+      <div className="border p-4 mt-4 sm:mt-8 max-w-lg mx-auto">
         <form ref={formRef} action={formAction} className="flex flex-col gap-4">
           <input
             type="text"

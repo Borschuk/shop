@@ -105,7 +105,7 @@ export default function AdditionalInfo() {
                 Core functionality — auth, CRUD, database schema, and routing —
                 was built by me. The landing page, component extraction, and
                 performance refactoring were assisted by AI following Vercel
-                React best practices.
+                React best practices and Tailwind best practices.
               </p>
             </div>
             <GitHubLinks />

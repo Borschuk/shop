@@ -29,7 +29,7 @@ export default function EditPopup({
 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Content maxWidth="450px">
+      <Dialog.Content maxWidth="450px" className="!w-[calc(100%-2rem)] sm:!w-full">
         <Dialog.Title>Edit Product</Dialog.Title>
 
         <form ref={formRef} action={formAction}>

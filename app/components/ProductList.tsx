@@ -13,10 +13,10 @@ export default async function ProductList() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-4 text-white text-center">
+      <h1 className="text-xl font-bold mb-4 text-white text-center sm:text-2xl">
         You log in as - {authData?.user?.email}
       </h1>
-      <div className="flex flex-wrap gap-4 p-2 justify-center">
+      <div className="flex flex-wrap gap-4 px-4 py-2 sm:px-2 justify-center">
         {products?.length === 0 && (
           <div className="flex flex-col items-center gap-4">
             <p className="text-white text-center">No products available.</p>

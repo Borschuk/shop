@@ -17,7 +17,7 @@ export default function ActionButtons({ productId }: { productId: string }) {
   }
 
   return (
-    <div className="font-semibold flex gap-4">
+    <div className="font-semibold flex flex-col gap-2 sm:flex-row sm:gap-4">
       <form action={formAction}>
         <input type="hidden" name="id" value={productId} />
         <button

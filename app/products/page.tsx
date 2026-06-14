@@ -11,9 +11,11 @@ export default async function page() {
 
   if (error || !user) {
     return (
-      <main className="flex-1">
+      <main className="flex-1 px-4 sm:px-0">
         <div className="mt-8 text-center">
-          <h1 className="text-2xl font-bold mb-4">Please Login first</h1>
+          <h1 className="text-xl font-bold mb-4 sm:text-2xl">
+            Please Login first
+          </h1>
           <Link href="/login" className="hover:underline">
             <button className="mt-8 cursor-pointer bg-teal-500 text-white p-2 rounded hover:bg-teal-600">
               Login
@@ -26,7 +28,7 @@ export default async function page() {
 
   return (
     <main className="flex-1">
-      <div className="mt-8 ">
+      <div className="mt-8 px-4 sm:px-0">
         <ProductList />
       </div>
     </main>

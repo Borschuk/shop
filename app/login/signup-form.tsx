@@ -11,9 +11,11 @@ export function SignUpForm() {
   const [state, formAction] = useActionState(signUp, initialState);
 
   return (
-    <main className="flex-1">
-      <h1 className="text-2xl font-bold text-center mt-4">Sign Up</h1>
-      <div className="border p-4 mt-8">
+    <main className="flex-1 px-4 sm:px-0">
+      <h1 className="text-xl font-bold text-center mt-4 sm:text-2xl">
+        Sign Up
+      </h1>
+      <div className="border p-4 mt-4 sm:mt-8 max-w-lg mx-auto">
         <form action={formAction} className="flex flex-col gap-4 ">
           <input
             type="email"
